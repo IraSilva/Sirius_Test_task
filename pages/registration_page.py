@@ -13,7 +13,6 @@ class RegistrationPage(BasePage):
         self._name_field = (By.CSS_SELECTOR, ".test-locator-sf-firstName > label")
         self._patronymic_field = (By.CSS_SELECTOR, ".test-locator-sf-patronymic > label")
         self._date_field = (By.CSS_SELECTOR, ".test-locator-sf-birth-date > label")
-        # self._calendar_field = (By.CSS_SELECTOR, "...")
         self._email_field = (By.CSS_SELECTOR, ".test-locator-sf-email > label")
         self._vosh_field = (By.CSS_SELECTOR, ".test-locator-sf-vosh-login-optional > label")
         self._phone_field = (By.CSS_SELECTOR, ".test-locator-sf-phone > label")
@@ -28,7 +27,8 @@ class RegistrationPage(BasePage):
         self._first_check_box = (By.CSS_SELECTOR, ".test-locator-sf-confirmation-of-veracity label input")
         self._second_check_box = (By.CSS_SELECTOR, ".test-locator-sf-users-agreement-and-personal-data label input")
         self._third_check_box = (By.CSS_SELECTOR, ".test-locator-sf-familiarized-with-the-rules label input")
-        self._confirmation_button = (By.CSS_SELECTOR, "button.smt-register-form__register-btn span")
+        self._confirmation_button = (By.CSS_SELECTOR, ".smt-register-form__register-btn ")
+        self._error_email_message = (By.CSS_SELECTOR, ".test-locator-sf-email .ui-schema-auth-form__error")
         # ...
 
     def get_page_header(self):
@@ -72,12 +72,12 @@ class RegistrationPage(BasePage):
         return self.element_is_visible(self._profession_field)
 
     def get_country_field(self):
-        """Метод проверяет видимость и кликабельность поля выбора страны"""
+        """Метод проверяет видимость и кликабельность списка стран"""
         self.element_is_visible(self._country_field)
         return self.element_is_clickable(self._country_field)
 
     def get_choose_country(self):
-        """Метод проверяет видимость страны в выпадающем списке"""
+        """Метод проверяет видимость и кликабельность страны в выпадающем списке"""
         self.element_is_visible(self._choose_country)
         return self.element_is_clickable(self._choose_country)
 
@@ -113,9 +113,14 @@ class RegistrationPage(BasePage):
         return self.element_is_clickable(self._third_check_box)
 
     def get_confirmation_button(self):
-        """Метод проверяет видимость и кликабельность кнопки 'Перейти к тестированию'"""
-        self.element_is_visible(self._confirmation_button)
-        return self.element_is_clickable(self._confirmation_button)
+        """Метод проверяет наличие кнопки 'Перейти к тестированию'"""
+        return self.element_is_present(self._confirmation_button)
+
+    def get_error_email_message(self):
+        """Метод проверяет видимость сообщения об ошибке при вводе неправильного email"""
+        return self.element_is_visible(self._error_email_message)
+
+
 
 
 

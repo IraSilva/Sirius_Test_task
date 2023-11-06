@@ -5,18 +5,20 @@ credentials = {
     "vosh_login": 'v00.000.000',
     "surname": 'Тест',
     "date_birth": '11.11.2011',
-    "phone": '9876543210',
-    "incorrect_email": 'testemail.mailinator.com',
-    "snils": '15179977012',
+    "phone": 9876543210,
+    "snils": 15179977012,
     "profession": 'Школьник',
-    "case_sensitive_email": 'TestOn120@Mailinator.com',
     "city": 'Москва',
     "organization": 'Организация',
-    "school": '1234',
-    "class": '5Б',
-    "юю": 'юю',
-    "33": '33',
-    "пп": 'test130@mailinator.com',
-    "valid_case_sensitive_email": 'Test130@Mailinator.com',
-    "valid_email_with_spaces": ' test130@mailinator.com '
+    "school": 1234,
+    "class": '5Б'
 }
+
+# Варианты валидных значений:
+surnames = ("Иванова-Сидорова", "Ем", "Христорождественская", " Петров ", "сидоров")
+names = ("Анна-Мария", "Ян", "Абдурахмангаджи", " Петр ", "олег")
+patronymics = (" Петрович ", "олегович", "Магомедаминович", "")
+phone_numbers = ("+79991234567", "999-999-99-99", "+7(999)1234567", "+7(999)123-45-67")
+
+# Варианты невалидных значений:
+invalid_emails = ("irina.vasileva.qa@gmail", "irina.vasileva.gmail.com", "irina.vasileva qa@gmail.com")
