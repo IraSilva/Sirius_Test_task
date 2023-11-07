@@ -13,16 +13,11 @@ from pages.registration_page import RegistrationPage
 def driver():
     print('\nstart browser...')
     chrome_options = Options()
-    if 'CI' in os.environ:
-        chrome_options.add_argument('--headless')
-        chrome_options.add_argument('--no-sandbox')
-        driver = webdriver.Chrome(service=Service(), options=chrome_options)
-        # driver.set_window_size(1382, 754)
-    else:
-        chrome_options.add_argument("--start-maximized")
-        # chrome_options.add_argument('--headless')
-        driver = webdriver.Chrome(service=Service(), options=chrome_options)
-        driver.implicitly_wait(10)
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    driver = webdriver.Chrome(service=Service(), options=chrome_options)
+    # driver.set_window_size(1382, 754)
+    driver.implicitly_wait(10)
     yield driver
     print('\nquit browser...')
     driver.quit()
