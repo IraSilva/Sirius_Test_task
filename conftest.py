@@ -14,9 +14,7 @@ def driver():
     print('\nstart browser...')
     chrome_options = Options()
     chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    driver = webdriver.Chrome(service=Service(), options=chrome_options)
-    # driver.set_window_size(1382, 754)
+    driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(10)
     yield driver
     print('\nquit browser...')
