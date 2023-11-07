@@ -1,4 +1,4 @@
-import os
+# import os
 
 import pytest
 from selenium import webdriver
@@ -13,8 +13,10 @@ from pages.registration_page import RegistrationPage
 def driver():
     print('\nstart browser...')
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    driver = webdriver.Chrome(options=chrome_options)
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    driver = webdriver.Chrome(service=Service(), options=chrome_options)
+    driver.set_window_size(1382, 754)
     driver.implicitly_wait(10)
     yield driver
     print('\nquit browser...')
