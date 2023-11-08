@@ -132,7 +132,7 @@ class TestRegistrationPage:
         assert registration_page.get_confirmation_button().is_enabled() is True, f"Кнопка отсутствует или неактивна"
 
     @pytest.mark.parametrize('phone', phone_numbers)
-    def test_01_05_registration_different_valid_phone_numbers(self, driver, registration_page, phone):
+    def test_01_07_registration_with_different_valid_phone_numbers(self, driver, registration_page, phone):
         """Проверка возможности регистрации с различными корректными форматами телефонного номера"""
 
         registration_page.get_surname_field().send_keys(credentials["surname"])
@@ -158,7 +158,7 @@ class TestRegistrationPage:
         assert registration_page.get_confirmation_button().is_enabled() is True, f"Кнопка отсутствует или неактивна"
 
     @pytest.mark.parametrize('invalid_email', invalid_emails)
-    def test_01_06_registration_with_invalid_emails(self, driver, registration_page, invalid_email):
+    def test_01_08_registration_with_invalid_emails(self, driver, registration_page, invalid_email):
         """Проверка правильности сообщения об ошибке при вводе некорректного email"""
 
         registration_page.get_email_field().send_keys(invalid_email)
